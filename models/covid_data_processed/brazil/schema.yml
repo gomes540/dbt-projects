@@ -1,0 +1,25 @@
+
+version: 2
+
+models:
+    - name: brazil_dbt_model
+      description: "Brazil COVID data from API"
+      columns:
+          - name: country_state
+            description: "Brazil States"
+            tests:
+                - unique
+                - not_null
+                - accepted_values:
+                    values: [
+                        'Alagoas','Amapa','Amazonas','Bahia','Espirito Santo','Goias','Maranhao','Mato Grosso do Sul',
+                        'Minas Gerais','Para','Paraiba','Parana','Pernambuco','Piaui','Rio Grande do Sul',
+                        'Rio de Janeiro','Rondonia','Roraima','Santa Catarina','Sao Paulo','Sergipe','Tocantins',
+                        'Distrito Federal', 'Mato Grosso','Rio Grande do Norte','Acre','Ceara'
+                    ]
+          - name: country_name
+            description: "Name of the Country"
+            tests:
+                - not_null
+                - accepted_values:
+                    values: ["Brazil"]

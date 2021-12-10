@@ -1,0 +1,24 @@
+
+version: 2
+
+models:
+    - name: spain_dbt_model
+      description: "Spain COVID data from API"
+      columns:
+          - name: country_state
+            description: "Spain Regions"
+            tests:
+                - unique
+                - not_null
+                - accepted_values:
+                    values: [
+                        'Andalusia','Aragon','Asturias','Baleares','C. Valenciana','Canarias','Cantabria',
+                        'Castilla - La Mancha','Castilla y Leon','Catalonia','Ceuta','Extremadura','Galicia',
+                        'La Rioja','Madrid','Melilla','Murcia','Navarra','Pais Vasco','Unknown'
+                    ]
+          - name: country_name
+            description: "Name of the Country"
+            tests:
+                - not_null
+                - accepted_values:
+                    values: ["Spain"]

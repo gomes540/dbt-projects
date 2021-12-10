@@ -1,0 +1,24 @@
+
+version: 2
+
+models:
+    - name: japan_dbt_model
+      description: "Japan COVID data from API"
+      columns:
+          - name: country_state
+            description: "Japan Regions"
+            tests:
+                - unique
+                - not_null
+                - accepted_values:
+                    values: [
+                        'Tokyo','Aomori','Ehime','Fukui','Gifu','Hiroshima','Ibaraki','Ishikawa','Iwate','Kagawa','Kagoshima','Kochi','Kumamoto','Kyoto','Mie','Nagasaki','Nara','Oita',
+                        'Okayama','Port Quarantine','Saga','Shimane','Tokushima','Tottori','Toyama','Unknown','Wakayama','Yamaguchi','Yamanashi','Fukushima','Miyagi','Miyazaki',
+                        'Nagano','Niigata','Chiba','Shiga','Akita','Tochigi','Yamagata','Okinawa','Shizuoka','Aichi','Gunma','Saitama','Hyogo','Fukuoka','Hokkaido','Kanagawa','Osaka'
+                    ]
+          - name: country_name
+            description: "Name of the Country"
+            tests:
+                - not_null
+                - accepted_values:
+                    values: ["Japan"]

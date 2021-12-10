@@ -1,0 +1,24 @@
+
+version: 2
+
+models:
+    - name: canada_dbt_model
+      description: "Canada COVID data from API"
+      columns:
+          - name: country_state
+            description: "Canada Regions"
+            tests:
+                - unique
+                - not_null
+                - accepted_values:
+                    values: [
+                        'New Brunswick','Ontario','Quebec','Saskatchewan','Alberta','British Columbia','Diamond Princess',
+                        'Grand Princess','Manitoba','Newfoundland and Labrador','Northwest Territories','Nova Scotia',
+                        'Nunavut','Prince Edward Island','Repatriated Travellers','Yukon'
+                    ]
+          - name: country_name
+            description: "Name of the Country"
+            tests:
+                - not_null
+                - accepted_values:
+                    values: ["Canada"]

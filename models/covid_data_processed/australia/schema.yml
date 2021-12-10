@@ -1,0 +1,20 @@
+
+version: 2
+
+models:
+    - name: australia_dbt_model
+      description: "Australia COVID data from API"
+      columns:
+          - name: country_state
+            description: "Australia States"
+            tests:
+                - unique
+                - not_null
+                - accepted_values:
+                    values: ['New South Wales','Victoria','Northern Territory','Tasmania','Western Australia','South Australia','Australian Capital Territory','Queensland']
+          - name: country_name
+            description: "Name of the Country"
+            tests:
+                - not_null
+                - accepted_values:
+                    values: ["Australia"]

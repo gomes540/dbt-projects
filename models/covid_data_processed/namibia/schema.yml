@@ -1,0 +1,13 @@
+
+version: 2
+
+models:
+    - name: namibia_dbt_model
+      description: "Namibia COVID data from API"
+      columns:
+          - name: country_name
+            description: "Name of the Country"
+            tests:
+                - not_null
+                - accepted_values:
+                    values: ["Namibia"]
