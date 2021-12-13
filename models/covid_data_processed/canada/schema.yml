@@ -8,7 +8,6 @@ models:
           - name: country_state
             description: "Canada Regions"
             tests:
-                - unique
                 - not_null
                 - accepted_values:
                     values: [
