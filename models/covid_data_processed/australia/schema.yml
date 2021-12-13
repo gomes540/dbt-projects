@@ -8,7 +8,6 @@ models:
           - name: country_state
             description: "Australia States"
             tests:
-                - unique
                 - not_null
                 - accepted_values:
                     values: ['New South Wales','Victoria','Northern Territory','Tasmania','Western Australia','South Australia','Australian Capital Territory','Queensland']
