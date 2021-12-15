@@ -5,7 +5,7 @@ models:
     - name: brazil_dbt_model
       description: "Brazil COVID data from API"
       columns:
-          - name: country_state
+          - name: state_name
             description: "Brazil States"
             tests:
                 - not_null
