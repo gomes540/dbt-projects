@@ -5,7 +5,7 @@ models:
     - name: canada_dbt_model
       description: "Canada COVID data from API"
       columns:
-          - name: country_state
+          - name: state_name
             description: "Canada Regions"
             tests:
                 - not_null
