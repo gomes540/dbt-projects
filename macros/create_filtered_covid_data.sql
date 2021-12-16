@@ -16,9 +16,9 @@
         CAST(fatality_rate AS FLOAT64)             AS fatality_rate,
         CAST(JSON_EXTRACT_SCALAR(region, '$.iso') AS STRING) AS country_iso,
         CAST(JSON_EXTRACT_SCALAR(region, '$.name') AS STRING) AS country_name,
-        CAST(JSON_EXTRACT_SCALAR(region, '$.province') AS STRING) AS state_name,
-        CAST(JSON_EXTRACT_SCALAR(region, '$.lat') AS FLOAT64) AS latitude,
-        CAST(JSON_EXTRACT_SCALAR(region, '$.long') AS FLOAT64) AS longitude,
+        NULLIF(CAST(JSON_EXTRACT_SCALAR(region, '$.province') AS STRING), "") AS state_name,
+        ROUND(CAST(JSON_EXTRACT_SCALAR(region, '$.lat') AS FLOAT64), 4) AS latitude,
+        ROUND(CAST(JSON_EXTRACT_SCALAR(region, '$.long') AS FLOAT64), 4) AS longitude,
         from COVID_DATA_RAW.covid_data where JSON_EXTRACT_SCALAR(region, '$.name') = {{ country }}
 
     )
